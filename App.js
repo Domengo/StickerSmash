@@ -1,7 +1,7 @@
 /** @format */
 
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Platform } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import { useState, useRef } from "react";
 import IconButton from "./components/iconButton";
@@ -12,6 +12,7 @@ import EmojiSticker from "./components/EmojiSticker";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import * as MediaLibrary from 'expo-media-library';
 import { captureRef } from 'react-native-view-shot';
+import domtoimage from 'dom-to-image';
 
 
 import Button from "./components/Button";
@@ -76,7 +77,6 @@ export default function App() {
       }
     }
   };
-  
 
   const pickImageAsync = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
