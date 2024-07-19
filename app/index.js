@@ -1,14 +1,11 @@
-import { View } from 'react-native';
-
+import { View, Text } from 'react-native';
 import { Link } from 'expo-router';
 
-
-export default function Page() {
+export default function Home() {
   return (
-    <View>
-      <Link href="/about">About</Link>
-      
-      <Link href="/user/bacon">View user</Link>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Home Screen</Text>
+      <Link href="/modal">Present modal</Link>
     </View>
   );
 }
