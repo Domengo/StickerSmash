@@ -1,7 +1,7 @@
 /** @format */
 
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View, Platform } from "react-native";
+import { StyleSheet, View, Platform, Text } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import { useState, useRef } from "react";
 import IconButton from "./components/iconButton";
@@ -137,14 +137,17 @@ export default function App() {
           <EmojiList onSelect={setPickedEmoji} onCloseModal={onModalClose} />
         </EmojiPicker>
         <StatusBar style="auto" />
-        <Text>
-          {Device.manufacturer}: {Device.modelName}
-        </Text>
-        <Text>
-          {Sharing.isAvailableAsync()}
-        </Text>
-      </View>
-
+        </View>
+        {/* <View>
+          <Text>
+            {Device.manufacturer}: {Device.modelName}
+          </Text>
+        </View> */}
+        {/* <View>
+          <Text>
+            {Sharing.isAvailableAsync()}
+          </Text>
+        </View> */}
     </GestureHandlerRootView>
   );
 }
