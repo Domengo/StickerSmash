@@ -13,7 +13,7 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import * as MediaLibrary from 'expo-media-library';
 import { captureRef } from 'react-native-view-shot';
 import domtoimage from 'dom-to-image';
-
+import * as Device from 'expo-device';
 
 import Button from "./components/Button";
 import ImageViewer from "./components/ImageViewer";
@@ -137,6 +137,11 @@ export default function App() {
         </EmojiPicker>
         <StatusBar style="auto" />
       </View>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>
+        {Device.manufacturer}: {Device.modelName}
+      </Text>
+    </View>
     </GestureHandlerRootView>
   );
 }
