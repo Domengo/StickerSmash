@@ -14,6 +14,7 @@ import * as MediaLibrary from 'expo-media-library';
 import { captureRef } from 'react-native-view-shot';
 import domtoimage from 'dom-to-image';
 import * as Device from 'expo-device';
+import * as Sharing from 'expo-sharing';
 
 import Button from "./components/Button";
 import ImageViewer from "./components/ImageViewer";
@@ -67,7 +68,7 @@ export default function App() {
           width: 320,
           height: 440,
         });
-  
+
         let link = document.createElement('a');
         link.download = 'sticker-smash.jpeg';
         link.href = dataUrl;
@@ -94,9 +95,9 @@ export default function App() {
 
   return (
     <GestureHandlerRootView style={styles.container}>
-      
-        <View style={styles.imageContainer}>
-          <View ref={imageRef} collapsable={false}>
+
+      <View style={styles.imageContainer}>
+        <View ref={imageRef} collapsable={false}>
           <ImageViewer
             placeholderImageSource={PlaceholderImage}
             image={image}
@@ -136,12 +137,14 @@ export default function App() {
           <EmojiList onSelect={setPickedEmoji} onCloseModal={onModalClose} />
         </EmojiPicker>
         <StatusBar style="auto" />
+        <Text>
+          {Device.manufacturer}: {Device.modelName}
+        </Text>
+        <Text>
+          {Sharing.isAvailableAsync()}
+        </Text>
       </View>
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>
-        {Device.manufacturer}: {Device.modelName}
-      </Text>
-    </View>
+
     </GestureHandlerRootView>
   );
 }
